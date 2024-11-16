@@ -1,4 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Trendify - E-Commerce App
+
+Trendify is a modern e-commerce web application built with **Next.js**, **Hygraph CMS** for content management, and **Chakra UI** for building a responsive and accessible user interface. This app follows the learning steps outlined in the book **"Real World Next.js"** by **Michele Riva**.
+
+## Features
+- Seamless e-commerce shopping experience
+- Dynamic product catalog fetched from **Hygraph CMS**
+- User-friendly and responsive UI built with **Chakra UI**
+- Integration with **Next.js** for SSR (Server-Side Rendering) and static site generation
+
+## Technologies Used
+- **Next.js**: A React framework for building optimized web applications with SSR and static site generation.
+- **Hygraph CMS**: A flexible headless CMS to manage products and content.
+- **Chakra UI**: A simple, modular, and accessible component library for React.
+- **Stripe** (optional for future integrations): For handling payments (if applicable).
 
 ## Getting Started
 
