@@ -1,9 +1,8 @@
-import ProductCard from './../components/ProductCard/index'; // Importing default export
+import ProductCard from './../components/ProductCard/index';
 import graphql from './../lib/graphql';
 import getAllProducts from '@/lib/graphql/queries/getAllProducts';
 import { Grid } from '@chakra-ui/react';
 
-// Home component
  const Home = (props) => {
   console.log(props.products);
   return (
@@ -21,10 +20,10 @@ import { Grid } from '@chakra-ui/react';
   );
 };
 
-// Export the Home component as default
+
 export default Home;
 
-// Export getStaticProps at the end
+
 export const getStaticProps = async () => {
   const { products } = await graphql.request(getAllProducts);
   console.log(products);
