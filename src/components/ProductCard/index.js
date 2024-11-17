@@ -28,7 +28,7 @@ const ProductCard = ({ slug, image, price, name }) => {
                         {name || 'Unnamed Product'}
                     </Text>
                     <Text color="gray.800">
-                        ${price ?? 'N/A'}
+                        ${price.toFixed(2) ?? 'N/A'}
                     </Text>
                 </Box>
             </Box>

@@ -101,7 +101,7 @@ export default function Cart() {
                     </Flex>
                 ))}
                 <Flex alignItems="center" justifyContent="space-between">
-                    <Text fontSize="xl" fontWeight="bold" color="gray.900">
+                    <Text fontSize="xl" fontWeight="bold" color="gray.900" paddingRight="5">
                     Total: €{getTotal()}
                     </Text>
                     <Button colorScheme="blue" padding="4" onClick={handlePayment}>
