@@ -4,7 +4,6 @@ import getAllProducts from '@/lib/graphql/queries/getAllProducts';
 import { Grid } from '@chakra-ui/react';
 
  const Home = (props) => {
-  console.log(props.products);
   return (
     <Grid gridTemplateColumns="repeat(4, 1fr)" gap="5">
       {props.products.map((product) => (

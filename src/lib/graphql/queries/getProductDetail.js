@@ -6,7 +6,7 @@ export default gql`
             id
             images(first: 1) {
                 id
-                uri
+                url
             }
             name
             price
