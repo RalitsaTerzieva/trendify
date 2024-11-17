@@ -75,7 +75,7 @@ const SelectQuantity = ({ onChange }) => {
 export default function ProductPage({ product }) {
     const [quantity, setQuantity] = useState(0);
     const { items, setItems } = useContext(CartContext);
-    console.log(product)
+    
     const alreadyInCart = product.id in items;
   
     function addToCart() {
