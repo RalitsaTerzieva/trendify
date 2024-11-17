@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { useState } from 'react';
 import { ChakraProvider, defaultSystem, Box, Flex } from "@chakra-ui/react";
 import CartContext from './../lib/context/Cart';
+import NavBar from './../components/Navbar/index';
 
 const App = ({ Component, pageProps }) => {
   const [items, setItems] = useState({});
@@ -10,6 +11,7 @@ const App = ({ Component, pageProps }) => {
     <ChakraProvider value={defaultSystem}>
        <CartContext.Provider value={{ items, setItems }}>
         <Flex w='full' minH='100vh' bgColor='gray.100'>
+          <NavBar/>
           <Box maxW='70vw' m='auto'>
             <Component {...pageProps} />
           </Box>
