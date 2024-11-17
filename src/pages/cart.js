@@ -12,25 +12,42 @@ export default function Cart() {
     const hasProducts = Object.keys(items).length;
 
     useEffect(() => {
-        if(!hasProducts) return;
-
+        if (!hasProducts) return;
+    
         graphql.request(getProductsById, {
             ids: Object.keys(items),
         })
         .then((data) => {
-            setProducts(data.products)
+            setProducts(data.products);
         })
-        .catch((err) => console.log(err))
-    }, [JSON.stringify(products)])
+        .catch((err) => console.log(err));
+    }, [items]);
 
     function getTotal() {
         if (!products.length) return 0;
     
         return Object.keys(items)
-          .map((id) => products.find((product) => product.id === id).price * (items[id] / 100))
-          .reduce((x, y) => x + y)
+          .map((id) => {
+            const product = products.find((product) => product.id === id);
+    
+            // If the product or product price is not found or price is invalid, return 0
+            if (!product || typeof product.price !== 'number' || product.price <= 0) {
+              return 0;
+            }
+    
+            const quantity = items[id];
+    
+            // If quantity is not valid, return 0
+            if (isNaN(quantity) || quantity <= 0) {
+              return 0;
+            }
+    
+            return (product.price * quantity) / 100;
+          })
+          .reduce((x, y) => x + y, 0)
           .toFixed(2);
-      }
+    }
+    
     
       async function handlePayment() {
         const stripe = await loadStripe();
@@ -80,7 +97,7 @@ export default function Cart() {
                         </Text>
                         </Link>
                     </Box>
-                    <Text color="gray.900" paddingRight="5">€{(product.id * (product.price / 100)).toFixed(2)}</Text>
+                    <Text color="gray.900" paddingRight="5">€{(product.price * (items[product.id] || 0) / 100).toFixed(2)}</Text>
                     </Flex>
                 ))}
                 <Flex alignItems="center" justifyContent="space-between">
