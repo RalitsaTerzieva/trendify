@@ -1,6 +1,6 @@
 import ProductCard from './../components/ProductCard/index';
 import graphql from './../lib/graphql';
-import getAllProducts from '@/lib/graphql/queries/getAllProducts';
+import getAllProducts from './../lib/graphql/queries/getAllProducts';
 import { Grid } from '@chakra-ui/react';
 
  const Home = (props) => {
@@ -22,10 +22,8 @@ import { Grid } from '@chakra-ui/react';
 
 export default Home;
 
-
 export const getStaticProps = async () => {
   const { products } = await graphql.request(getAllProducts);
-  console.log(products);
 
   return {
     revalidate: 60,
