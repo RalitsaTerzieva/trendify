@@ -90,7 +90,7 @@ export default function Cart() {
                             color="gray.900"
                             _hover={{ textDecoration: 'underline', color: 'blue.500' }}>
                             {product.name}
-                            <Text as="span" color="gray.900">
+                            <Text as="span" color="gray.900" paddingRight="10">
                             {' '}
                             x {product.name}
                             </Text>
@@ -104,7 +104,7 @@ export default function Cart() {
                     <Text fontSize="xl" fontWeight="bold" color="gray.900">
                     Total: €{getTotal()}
                     </Text>
-                    <Button colorScheme="blue" onClick={handlePayment}>
+                    <Button colorScheme="blue" padding="4" onClick={handlePayment}>
                     Pay now
                     </Button>
                 </Flex>
