@@ -79,9 +79,19 @@ export default function ProductPage({ product }) {
     const alreadyInCart = product.id in items;
   
     function addToCart() {
-      setItems({
-        ...items,
-        [product.id]: quantity,
+      console.log("Adding to cart", product.id, quantity);
+      setItems((prevItems) => {
+        const updatedItems = { ...prevItems };
+    
+        // Increment quantity if the item already exists in the cart
+        if (updatedItems[product.id]) {
+          updatedItems[product.id] += quantity;
+        } else {
+          updatedItems[product.id] = quantity;
+        }
+    
+        console.log("Updated items in cart:", updatedItems);
+        return updatedItems;
       });
     }
 

@@ -7,7 +7,11 @@ import CartContext from './../../lib/context/Cart';
 export default function NavBar() {
   const { items } = useContext(CartContext);
 
-  const itemsCount = Object.values(items).reduce((x, y) => x + y, 0);
+  const itemsCount = Object.values(items)
+    .reduce((total, quantity) => {
+      return total + (isNaN(quantity) ? 0 : quantity);
+    }, 0);
+  
 
   return (
     <Box position="fixed" top={0} left={0} w="full" bgColor="white" boxShadow="md">
